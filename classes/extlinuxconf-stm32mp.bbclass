@@ -77,7 +77,7 @@ UBOOT_EXTLINUX_FDT ??= ""
 UBOOT_EXTLINUX_FDTDIR ??= "../"
 UBOOT_EXTLINUX_KERNEL_IMAGE ?= "/${KERNEL_IMAGETYPE}"
 UBOOT_EXTLINUX_KERNEL_ARGS ?= "rootwait rw"
-UBOOT_EXTLINUX_TIMEOUT ?= "20"
+UBOOT_EXTLINUX_TIMEOUT ?= "50"
 
 def create_extlinux_file(cfile, labels, data):
     """

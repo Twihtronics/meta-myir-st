@@ -8,8 +8,7 @@ SRC_URI += "${@bb.utils.contains('MACHINE_FEATURES', 'splashscreen', 'file://LIC
 
 S = "${WORKDIR}"
 
-#UBOOT_SPLASH_SRC = "stmicroelectronics.bmp"
-UBOOT_SPLASH_SRC = "myir_splash.bmp"
+UBOOT_SPLASH_SRC = "stmicroelectronics.bmp"
 UBOOT_SPLASH_IMAGE ?= "splash"
 
 inherit deploy

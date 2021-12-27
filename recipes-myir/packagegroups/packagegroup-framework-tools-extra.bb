@@ -30,10 +30,6 @@ RDEPENDS_packagegroup-framework-tools-extra = "\
 SUMMARY_packagegroup-framework-tools-extra-core = "Framework tools extra components for core"
 RDEPENDS_packagegroup-framework-tools-extra-core = "\
     tslib-calibrate \
-    tslib	    \
-    tslib-conf	    \
-    tslib-uinput    \
-    tslib-tests	    \
     pointercal      \
     \
     acl             \
@@ -74,7 +70,6 @@ RDEPENDS_packagegroup-framework-tools-extra-network = "\
     lftp	    \
     samba	    \
     pv		    \
-    ppp		    \
     "
 
 SUMMARY_packagegroup-framework-tools-extra-audio = "Framework tools extra components for audio"

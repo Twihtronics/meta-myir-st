@@ -5,9 +5,9 @@ UBOOT_EXTLINUX_CONSOLE = "console=${@d.getVar('SERIAL_CONSOLE').split()[1]},${@d
 # Define default FDTDIR for all configs
 UBOOT_EXTLINUX_FDTDIR = "/"
 # Define default MENU DESCRIPTION for all configs
-UBOOT_EXTLINUX_MENU_DESCRIPTION += "stm32mp157c-ya157c-v2"
+UBOOT_EXTLINUX_MENU_DESCRIPTION = "stm32mp157c-ya157c-v2"
 # Define default boot config for all config
-UBOOT_EXTLINUX_DEFAULT_LABEL ?= "stm32mp157c-ya157c-hdmi-v2"
+UBOOT_EXTLINUX_DEFAULT_LABEL ?= "stm32mp157c-ya157c-lcd-v2"
 # Define default INITRD for all configs
 INITRD_SHORTNAME ??= ""
 UBOOT_EXTLINUX_INITRD ?= "${@bb.utils.contains('COMBINED_FEATURES', 'autoresize', '/${INITRD_SHORTNAME}', '', d)}"
@@ -18,7 +18,7 @@ UBOOT_EXTLINUX_INITRD ?= "${@bb.utils.contains('COMBINED_FEATURES', 'autoresize'
 # Define additional targets to use
 UBOOT_EXTLINUX_TARGETS += "${@bb.utils.contains_any('BOOTDEVICE_LABELS', [ 'sdcard', 'nor-sdcard' ], 'target-sdcard', '', d)}"
 UBOOT_EXTLINUX_TARGETS += "${@bb.utils.contains('BOOTDEVICE_LABELS', 'emmc', 'target-emmc', '', d)}"
-UBOOT_EXTLINUX_TARGETS += "${@bb.utils.contains_any('BOOTDEVICE_LABELS', [ 'nand-2-256', 'nor-nand-2-256' ], 'target-nand', '', d)}"
+UBOOT_EXTLINUX_TARGETS += "${@bb.utils.contains_any('BOOTDEVICE_LABELS', [ 'nand-4-256', 'nor-nand-4-256' ], 'target-nand', '', d)}"
 # Define labels for each target
 # (mandatory to allow specific var override if needed)
 UBOOT_EXTLINUX_LABELS_target-sdcard += "rootfs"
@@ -52,16 +52,13 @@ UBOOT_EXTLINUX_INITRD_target-nand = ""
 #UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-sdcard += "${STM32MP_DT_FILES_EV}"
 UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-sdcard += " ${STM32MP_DT_FILES_YA157C}"
 
-
 #UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-emmc += "${STM32MP_DT_FILES_ED}"
 #UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-emmc += "${STM32MP_DT_FILES_EV}"
 UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-emmc += "${STM32MP_DT_FILES_YA157C}"
 
-
 #UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-nand += "${STM32MP_DT_FILES_ED}"
 #UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-nand += "${STM32MP_DT_FILES_EV}"
 UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG_target-nand += "${STM32MP_DT_FILES_YA157C}"
-
 
 # Define extra label configuration
 #UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG[stm32mp157c-dk2] += "stm32mp157c-dk2-a7"
@@ -79,18 +76,15 @@ UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG[stm32mp157c-ya157c-v2] += "stm32mp157c-ya157
 UBOOT_EXTLINUX_TARGETS_EXTRA_CONFIG[stm32mp157c-ya157c-v2] += "stm32mp157c-ya157c-lcd-v2"
 
 
-
 # -----------------------------------------------------------------------------
 # Configure myir labels
 # -----------------------------------------------------------------------------
 #UBOOT_EXTLINUX_MENU_DESCRIPTION_stm32mp157c-ya157c-v2 = "ya157c-core"
 UBOOT_EXTLINUX_MENU_DESCRIPTION_stm32mp157c-ya157c-hdmi-v2 = "stm32mp157c-ya157c-hdmi-v2"
 UBOOT_EXTLINUX_MENU_DESCRIPTION_stm32mp157c-ya157c-lcd-v2 = "stm32mp157c-ya157c-lcd-v2"
-
 #UBOOT_EXTLINUX_FDT_stm32mp157c-ya157c-v2 = "/stm32mp157c-ya157c-v2.dtb"
 UBOOT_EXTLINUX_FDT_stm32mp157c-ya157c-hdmi-v2 = "/stm32mp157c-ya157c-hdmi-v2.dtb"
 UBOOT_EXTLINUX_FDT_stm32mp157c-ya157c-lcd-v2 = "/stm32mp157c-ya157c-lcd-v2.dtb"
-
 
 
 # -----------------------------------------------------------------------------
